@@ -5,7 +5,6 @@ namespace TinyEcomStore.Client.Services.Distributor
 {
     public interface IDistributorService
     {
-        List<Products> Products { get; set; }
-        Task getProducts();
+        Task<List<Products>> getProducts();
     }
 }

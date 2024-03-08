@@ -1,8 +1,8 @@
 ﻿@page "/distributor/"
 @page "/distributor/shop"
-@inject HttpClient http
+@using TinyEcomStore.Client.Models;
 @inject IDistributorService DistributorService
-@using Models
+
 <TinyEcomStore.Client.Pages.Distributor.Shared.DistributorSideNav />
 <div class="distributor-content">
     <div class="col gap-4">
@@ -19,26 +19,38 @@
     <table class="table">
         <thead>
             <tr>
-                <th></th>
+                <th>Name</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var product in DistributorService.Products)
+            @if (products is null)
+            {
+                <p>No products found</p>
+            }
+            else
+            {
+                @foreach (var product in products)
                 {
-                <tr>
-                    <td>product.Name</td>
-                </tr>
+                    <tr>
+                        <td>@product.Name</td>
+                        <td>@product.Price</td>
+                        <td>yawe</td>
+                    </tr>
                 }
+            }
+           
+                <tr><td>asdasdasdas</td></tr>
         </tbody>
     </table>
+    
 </div>
 
 
 @code {
-
-
-    protected override async void OnInitialized()
+    private List<Products>? products;
+    protected override async Task OnInitializedAsync()
     {
-        DistributorService.getProducts();
+       products = await DistributorService.getProducts();
     }
+
 }

@@ -10,6 +10,6 @@ namespace TinyEcomStore.BusinessLogic.Services.Distributor
 {
     public interface IDistributorService
     {
-        Task<List<ProductsResponse>> getProducts();
+        public Task<List<ProductsResponse>> getProducts();
     }
 }

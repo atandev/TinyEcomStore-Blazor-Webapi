@@ -1,4 +1,5 @@
-﻿using System.Net.Http.Json;
+﻿using System.Collections.Generic;
+using System.Net.Http.Json;
 using TinyEcomStore.Client.Models;
 
 namespace TinyEcomStore.Client.Services.Distributor
@@ -10,12 +11,28 @@ namespace TinyEcomStore.Client.Services.Distributor
         {
             _http = http;
         }
-        public List<Products> Products { get; set; } = new List<Products>();
 
-        public async Task getProducts()
+        public async Task<List<Products>> getProducts()
         {
-            var result = await _http.GetFromJsonAsync<List<Products>>("api/distributor/get-products");
-            Products = result;
+            try
+            {
+                Console.WriteLine("asdas");
+                var response = await _http.GetAsync("api/distributor/get-products");
+                if (response.IsSuccessStatusCode)
+                {
+                    var products = await response.Content.ReadFromJsonAsync<List<Products>>();
+                    return products;
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+            catch (Exception ex) 
+            {
+                return null;
+            }
         }
     }
 }

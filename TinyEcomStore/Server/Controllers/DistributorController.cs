@@ -30,7 +30,7 @@ namespace TinyEcomStore.Server.Controllers
             try
             {
                 InitDependecy();
-                var result = _distributorService.getProducts();
+                var result = await _distributorService.getProducts();
                 return Ok(result);
             }
             catch
