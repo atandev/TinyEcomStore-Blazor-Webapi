@@ -1,0 +1,44 @@
+﻿@page "/distributor/"
+@page "/distributor/shop"
+@inject HttpClient http
+@inject IDistributorService DistributorService
+@using Models
+<TinyEcomStore.Client.Pages.Distributor.Shared.DistributorSideNav />
+<div class="distributor-content">
+    <div class="col gap-4">
+        <div class="col-sm-4 col-md-3 ">
+            <div class="shop-item">
+                <img src="http://images.amazon.com/images/P/0596004605.01._PE50_PI_SCMZZZZZZZ_.jpg" class="shop-item-img" alt="" />
+                <p class="shop-item-title">card title</p>
+                <div class="shop-item-overlay"></div>
+                <div class="shop-item-button"><a href="#"> Buy Now </a></div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in DistributorService.Products)
+                {
+                <tr>
+                    <td>product.Name</td>
+                </tr>
+                }
+        </tbody>
+    </table>
+</div>
+
+
+@code {
+
+
+    protected override async void OnInitialized()
+    {
+        DistributorService.getProducts();
+    }
+}
