@@ -52,8 +52,15 @@ a[aria-expanded="true"] {
     position: relative;
     margin-top: 50px;
     width: 250px;
-    height: 250px;
+    height: 300px;
     border-radius:10px;
+}
+.shop-item-name {
+    position: absolute;
+    bottom: 5px;
+    width: 250px;
+    max-width: 250px;
+    text-align: center;
 }
 
 .shop-item-overlay {
@@ -75,29 +82,33 @@ a[aria-expanded="true"] {
 
 .shop-item-img {
     position: absolute;
+    background: #fff;
     width: 250px;
     height: 250px;
     left: 0;
     border-radius:10px;
     overflow: hidden;
+
 }
 
-.shop-item-title {
+.shop-item-price {
     position: absolute;
     width: 250px;
+    max-width: 250px;
     left: 0;
     top: 120px;
     font-weight: 700;
     font-size: 20px;
+    overflow:hidden;
     text-align: center;
     text-transform: uppercase;
     color: white;
     z-index: 1;
-    text-shadow: 2px 2px 8px #161212;
+    text-shadow: 2px 2px 20px #161212;
     transition: top .5s ease;
 }
 
-.shop-item:hover .shop-item-title {
+.shop-item:hover .shop-item-price {
     top: 90px;
 }
 

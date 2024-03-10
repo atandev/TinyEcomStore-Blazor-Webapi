@@ -16,4 +16,8 @@
     <ProjectReference Include="..\Shared\TinyEcomStore.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\asset\img\" />
+  </ItemGroup>
+
 </Project>

@@ -5,43 +5,25 @@
 
 <TinyEcomStore.Client.Pages.Distributor.Shared.DistributorSideNav />
 <div class="distributor-content">
-    <div class="col gap-4">
-        <div class="col-sm-4 col-md-3 ">
-            <div class="shop-item">
-                <img src="http://images.amazon.com/images/P/0596004605.01._PE50_PI_SCMZZZZZZZ_.jpg" class="shop-item-img" alt="" />
-                <p class="shop-item-title">card title</p>
-                <div class="shop-item-overlay"></div>
-                <div class="shop-item-button"><a href="#"> Buy Now </a></div>
-            </div>
-        </div>
+    @if(products is null)
+    {
+      <p>No Products found</p>
+    }else{
+    <div class="row">  
+        @foreach (var product in products){
+          <div class="col-sm-4 col-md-4 col-sm-offset-8">
+             <div class="shop-item">
+               <img src="@product.FilePath" class="shop-item-img" alt="" />
+               <p class="shop-item-price">@product.DP.ToString("N2")</p>
+               <div class="shop-item-overlay"></div>
+               <div class="shop-item-button"><a href="#"> Add to Cart </a></div>
+               <div class="shop-item-name"><p>@product.Name</p></div>
+             </div>
+           </div>
+            }
     </div>
+    }
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-            </tr>
-        </thead>
-        <tbody>
-            @if (products is null)
-            {
-                <p>No products found</p>
-            }
-            else
-            {
-                @foreach (var product in products)
-                {
-                    <tr>
-                        <td>@product.Name</td>
-                        <td>@product.Price</td>
-                    </tr>
-                }
-            }
-           
-                <tr><td>asdasdasdas</td></tr>
-        </tbody>
-    </table>
-    
 </div>
 
 

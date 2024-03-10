@@ -30,11 +30,17 @@ namespace TinyEcomStore.BusinessLogic.Repository.Distributor
                                   {
                                       Id = p.Id,
                                       Name = p.Name,
-                                      Price = p.Price,
+                                      FilePath = p.FilePath,
+                                      Category = p.Category,
+                                      SRP = p.SRP,
+                                      DP = p.DP,
+                                      WSP = p.WSP,
+                                      EP = p.EP,
                                       Description = p.Description,
-                                      CreatedDate = p.CreatedDate
+                                      CreatedDate = p.CreatedDate,
+                                      ModifiedDate = p.ModifiedDate
                                   }).ToList();
-                    return result;
+                    return  result;
                 }
             }
             catch
