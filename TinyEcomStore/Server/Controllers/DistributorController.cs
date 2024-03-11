@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TinyEcomStore.BusinessLogic.Repository.Distributor;
 using TinyEcomStore.BusinessLogic.Services.Distributor;
 using TinyEcomStore.DataAccess.Context;
 
 namespace TinyEcomStore.Server.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class DistributorController : ControllerBase
